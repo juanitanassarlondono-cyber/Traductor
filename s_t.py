@@ -11,6 +11,59 @@ from gtts import gTTS
 from deep_translator import GoogleTranslator
 
 
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
+}
+
+.stApp {
+    background: linear-gradient(135deg, #F8F2EA 0%, #EFE3D3 45%, #D8BFA5 100%);
+    color: #3A2A1F;
+}
+
+h1, h2, h3, .stTitle, .stSubheader {
+    color: #5A3825 !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #4B2E22 0%, #7A4E35 100%);
+}
+
+section[data-testid="stSidebar"] * {
+    color: #FFF7EF !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+div.stButton > button {
+    background: linear-gradient(135deg, #8B5E3C, #C08A5A);
+    color: #FFF7EF;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+div.stButton > button:hover {
+    background: linear-gradient(135deg, #70482F, #A97147);
+    color: #FFFFFF;
+}
+
+div[data-baseweb="select"] * {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.stCheckbox label {
+    font-family: 'Poppins', sans-serif !important;
+    color: #3A2A1F !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 st.title("TRADUCTOR.")
 st.subheader("Escucho lo que quieres traducir.")
 
@@ -28,7 +81,7 @@ with st.sidebar:
 
 st.write("Toca el Botón y habla lo que quires traducir")
 
-stt_button = Button(label=" Escuchar  🎤", width=300, height=50)
+stt_button = Button(label=" Escuchar  🎤", width=300, height=50, button_type="primary")
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
